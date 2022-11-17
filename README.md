@@ -1,1 +1,1 @@
-# study_three
+# three.js
