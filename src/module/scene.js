@@ -35,6 +35,9 @@ console.log(boxMaterial)
 
 // 根据集合体和物料创建网格
 const mesh = new THREE.Mesh(boxGeometry, boxMaterial)
+console.log(mesh)
+// 设置网格位置
+// mesh.position.set(5, 0, 0)
 
 // 几何体添加到场景
 scene.add(mesh)
@@ -62,6 +65,16 @@ const axesHelper = new THREE.AxesHelper(5)
 scene.add(axesHelper)
 
 function animate() {
+  mesh.position.x += 0.01
+  mesh.position.y += 0.01
+  mesh.position.z += 0.01
+
+  if (mesh.position.x >= 2) {
+    mesh.position.x = 0
+    mesh.position.y = 0
+    mesh.position.z = 0
+  }
+
   // 渲染场景和相机
   renderer.render(scene, camera)
   requestAnimationFrame(animate)
